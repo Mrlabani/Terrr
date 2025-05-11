@@ -1,18 +1,22 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "api/bot.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/renew-cookie.js",
+      "use": "@vercel/node"
+    }
+  ],
   "functions": {
     "api/bot.js": {
       "runtime": "nodejs18.x"
     },
     "api/renew-cookie.js": {
       "runtime": "nodejs18.x",
-      "schedule": "0 */6 * * *"  // Runs every 6 hours
+      "schedule": "0 */6 * * *"
     }
-  },
-  "builds": [
-    {
-      "src": "api/*.js",
-      "use": "@vercel/node"
-    }
-  ]
+  }
 }
